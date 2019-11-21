@@ -7,7 +7,7 @@ provider "aws" {
 # CLUSTER VARIABLES
 variable "cluster-name" {
   default = "terraform-eks-demo"
-  type    = string
+  type    = "string"
 }
 
 # SUBNET
