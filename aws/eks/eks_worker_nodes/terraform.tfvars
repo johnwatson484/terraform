@@ -1,7 +1,7 @@
 # TERRAGRUNT CONFIGURATION
 terragrunt = {
   terraform {
-    source = "git::ssh://git@github.com:johnwatson484/terraform.git//aws//eks//eks_worker_nodes"
+    source = "git::git@github.com:johnwatson484/terraform.git//aws//eks//eks_worker_nodes"
   }
 
   # Include all settings from the root terraform.tfvars file
