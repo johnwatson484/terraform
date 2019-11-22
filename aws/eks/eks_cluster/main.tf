@@ -44,7 +44,7 @@ data "terraform_remote_state" "iam_state" {
 # EKS CLUSTER
 resource "aws_eks_cluster" "eks_cluster_001" {
   depends_on = ["aws_cloudwatch_log_group.eks_cluster_log_group_001"]
-  name = "${var.eks_cluster_001}"
+  name = "JWAWS1CLUSTERLC001"
   role_arn = "${data.terraform_remote_state.iam_state.eks_cluster_role_arn}"
   enabled_cluster_log_types = ["api", "audit"]
   version = "${var.eks_version}"
