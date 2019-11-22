@@ -15,7 +15,7 @@ data "aws_caller_identity" "current" {}
 data "terraform_remote_state" "sgp_state" {
   backend = "s3"
   config {
-    bucket = "${data.aws_caller_identity.current.account_id}-${var.region}-${lower(var.service["code"])}-terraform-shared-state"
+    bucket = "johnwatsonaws1-eks-terraform-shared-state"
     key = "/${var.region}/${var.environment}/security_groups/terraform.tfstate"
     region = "${var.region}"
   }
@@ -25,7 +25,7 @@ data "terraform_remote_state" "sgp_state" {
 data "terraform_remote_state" "sbn_state" {
   backend = "s3"
   config {
-    bucket = "${data.aws_caller_identity.current.account_id}-${var.region}-${lower(var.service["code"])}-terraform-shared-state"
+    bucket = "johnwatsonaws1-eks-terraform-shared-state"
     key = "/${var.region}/${var.environment}/subnets/terraform.tfstate"
     region = "${var.region}"
   }
@@ -35,7 +35,7 @@ data "terraform_remote_state" "sbn_state" {
 data "terraform_remote_state" "iam_state" {
   backend = "s3"
   config {
-    bucket = "${data.aws_caller_identity.current.account_id}-${var.region}-${lower(var.service["code"])}-terraform-shared-state"
+    bucket = "johnwatsonaws1-eks-terraform-shared-state"
     key    = "/${var.region}/${var.environment}/iam/terraform.tfstate"
     region = "${var.region}"
   }
