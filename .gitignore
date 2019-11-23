@@ -30,3 +30,6 @@ override.tf.json
 tf.json
 *.tar.gz
 *-kubeconfig
+
+# EKS
+**/config_map_aws_auth.yaml
