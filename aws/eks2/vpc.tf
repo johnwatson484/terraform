@@ -15,7 +15,7 @@ resource "aws_vpc" "eks_vpc" {
 
 resource "aws_subnet" "eks_subnet" {
   count = 2
-  availability_zone_id = "[${data.aws_availability_zones.available.names.0}, ${data.aws_availability_zones.available.names.1}]"
+  availability_zone = "${data.aws_availability_zones.available.names.0}"
   cidr_block        = "10.0.${count.index}.0/24"
   vpc_id            = "${aws_vpc.eks_vpc.id}"
   tags {
