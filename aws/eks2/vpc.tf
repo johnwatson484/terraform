@@ -8,24 +8,24 @@
 
 resource "aws_vpc" "eks_vpc" {
   cidr_block = "10.0.0.0/16"
-  tags {
+  tags = {
     Name = "${var.tag}"
   }
 }
 
 resource "aws_subnet" "eks_subnet" {
   count = 2
-  availability_zone = "${data.aws_availability_zones.available.names.0}"
+  availability_zone = "${data.aws_availability_zones.available.names[count.index]}"
   cidr_block        = "10.0.${count.index}.0/24"
   vpc_id            = "${aws_vpc.eks_vpc.id}"
-  tags {
+  tags = {
     Name = "${var.tag}"
   }
 }
 
 resource "aws_internet_gateway" "eks_internet_gateway" {
   vpc_id = "${aws_vpc.eks_vpc.id}"
-  tags {
+  tags = {
     Name = "${var.tag}"
   }
 }

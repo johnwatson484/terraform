@@ -21,6 +21,16 @@ resource "aws_iam_role" "eks_cluster_role" {
 POLICY
 }
 
+resource "aws_iam_role_policy_attachment" "eks_cluster_AmazonEKSClusterPolicy" {
+  policy_arn = "arn:aws:iam::aws:policy/AmazonEKSClusterPolicy"
+  role       = "${aws_iam_role.eks_cluster_role.name}"
+}
+
+resource "aws_iam_role_policy_attachment" "eks_cluster_AmazonEKSServicePolicy" {
+  policy_arn = "arn:aws:iam::aws:policy/AmazonEKSServicePolicy"
+  role       = "${aws_iam_role.eks_cluster_role.name}"
+}
+
 # Security Group
 resource "aws_security_group" "eks_cluster_security_group" {
   name        = "eks_cluster_security_group"
